@@ -5,7 +5,7 @@ module MyUtil
   end
 
   def get_body(url, limit=2)
-    raise RedirectError, 'HTTP redirect too deep' if limit.zero?
+    raise Gist::RedirectError, 'HTTP redirect too deep' if limit.zero?
 
     uri = URI(url)
     https = Net::HTTP.new(uri.host, uri.port)
